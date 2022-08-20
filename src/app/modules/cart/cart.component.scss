@@ -1,0 +1,239 @@
+// Mixin to generate hover & active states
+@mixin hover-active() {
+	&:active,
+	&:hover {
+		@content;
+	}
+}
+
+// Replace `$search` with `$replace` in `$string`
+@function str-replace($string, $search, $replace: "") {
+	$index: str-index($string, $search);
+
+	@if $index {
+		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+	}
+
+	@return $string;
+}
+
+
+.cardCart{
+  margin: auto;
+  max-width: 950px;
+  width: 90%;
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 1rem;
+  border: transparent;
+}
+
+@media(max-width:950px){
+  .cardCart{
+      margin: 3vh auto;
+  }
+}
+
+.cart{
+  background-color: #fff;
+  padding: 4vh 5vh;
+  width: 400;
+  height: 400;
+  border-bottom-left-radius: 1rem;
+  border-top-left-radius: 1rem;
+}
+
+@media(max-width:767px){
+  .cart{
+      padding: 4vh;
+      border-bottom-left-radius: unset;
+      border-top-right-radius: 1rem;
+  }
+}
+
+.summary1{
+  background-color:#009688;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  padding: 4vh;
+  color: rgb(255, 255, 255);
+}
+
+.summary{
+  background-color: #fff;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  padding: 4vh;
+
+}
+
+@media(max-width:767px){
+  .summary1{
+  border-top-right-radius: unset;
+  border-bottom-left-radius: 1rem;
+  }
+}
+
+
+
+
+.main{
+  margin: 0;
+  padding: 2vh 0;
+  width: 100%;
+}
+
+
+mat-icon{
+  font-size: small;
+}
+
+
+.produit-name{
+  font-size: x-large;
+  font-family: 'Kaushan Script', cursive;
+}
+
+
+.merci{
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+
+
+
+
+
+@media screen and (max-width: 575px) {
+
+  .table-xs-responsive thead {
+    border: hidden;
+    border-style:hidden;
+    border-bottom-style:hidden;
+  }
+
+  .table-xs-responsive thead tr{
+    border: hidden;
+    border-style:hidden;
+    border-bottom-style:hidden;
+  }
+
+  .table-xs-responsive th {
+      width: 100% !important;
+      height: 0% !important;
+      display:table-column-group !important;
+      box-sizing: border-box;
+      visibility: hidden;
+      border: hidden;
+      border-style:hidden;
+      border-bottom-style:hidden;
+
+  }
+  .table-xs-responsive td {
+      width: 100% !important;
+      display: block !important;
+      box-sizing: border-box;
+  }
+
+  }
+  @media screen and (max-width: 767px) {
+  .table.table-sm-responsive th {
+      width: 100% !important;
+      display: block !important;
+      box-sizing: border-box;
+  }
+  .table.table-sm-responsive td {
+      width: 100% !important;
+      display: block !important;
+      box-sizing: border-box;
+  }
+  }
+  @media screen and (max-width: 992px) {
+  .table.table-sm-responsive th {
+      width: 100% !important;
+      display: block !important;
+      box-sizing: border-box;
+  }
+  .table.table-sm-responsive td {
+      width: 100% !important;
+      display: block !important;
+      box-sizing: border-box;
+  }
+  }
+  @media screen and (max-width: 1200px) {
+  .table.table-sm-responsive th {
+      width: 100% !important;
+      display: block !important;
+      box-sizing: border-box;
+  }
+  .table.table-sm-responsive td {
+      width: 100% !important;
+      display: block !important;
+      box-sizing: border-box;
+  }
+  }
+
+  th, td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+button.minus-button,
+button.plus-button{
+                width: 24px;
+								height: 24px;
+                border: none;
+								text-align: center;
+								vertical-align: middle;
+
+                @include hover-active() {
+									color: white;
+									background: #009688;
+									border-color: #009688;
+									cursor: pointer;
+									outline: none;
+								}
+
+								&:focus {
+									outline: none;
+								}
+
+
+}
+
+input.qty-input {
+  width: 24px;
+  height: 24px;
+  border: none;
+  text-align: center;
+
+
+  &:focus {
+    outline: none;
+    border:none;
+  }
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    appearance: none;
+    margin: 0;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,55 @@
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+  <mat-card *ngIf="!isSuccessful">
+    <mat-toolbar color="primary">
+      Créer un compte
+     </mat-toolbar>
+    <form fxLayoutAlign="stretch" fxLayout="column" class="register-form" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate >
+      <div class="row">
+        <div class="col-sm-6" fxLayoutAlign="stretch" fxLayout="column">
+          <mat-form-field>
+            <input matInput placeholder="Prénom" required type="text" [(ngModel)]="form.firstName" name="firstName" #firstName="ngModel" />
+            <mat-icon matSuffix>person</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6" fxLayoutAlign="stretch" fxLayout="column">
+          <mat-form-field>
+            <input matInput placeholder="Nom" required type="text" [(ngModel)]="form.lastName" name="lastName" #lastName="ngModel"/>
+            <mat-icon matSuffix>person</mat-icon>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6" fxLayoutAlign="stretch" fxLayout="column">
+          <mat-form-field>
+            <input matInput placeholder="Téléphone portable" required type="number" [(ngModel)]="form.phone" name="phone" #phone="ngModel"/>
+            <mat-icon matSuffix>phone</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6" fxLayoutAlign="stretch" fxLayout="column">
+          <mat-form-field>
+            <input matInput placeholder="E-mail" required type="email" [(ngModel)]="form.email" name="email" #email="ngModel"/>
+            <mat-icon matSuffix>email</mat-icon>
+          </mat-form-field>
+        </div>
+      </div>
+        <mat-form-field>
+          <input matInput placeholder="Mot de passe" required type="password" [(ngModel)]="form.password" name="password" #password="ngModel"/>
+          <mat-icon matSuffix>lock</mat-icon>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">Inscription</button>
+        <div class="form-group">
+          <div
+          style="margin-top: 20px;"
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="f.submitted && isSignUpFailed"
+          >
+          Signup failed! <br /> {{ errorMessage }}
+          </div>
+        </div>
+    </form>
+  </mat-card>
+  <div class="alert alert-success" *ngIf="isSuccessful">
+    Your registration is successful!
+  </div>
+</div>

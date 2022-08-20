@@ -1,0 +1,98 @@
+
+
+.cardCart{
+  margin: auto;
+  margin-top: 100px;
+  max-width: 950px;
+  width: 90%;
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 1rem;
+  border: transparent;
+}
+
+@media(max-width:950px){
+  .cardCart{
+      margin: 3vh auto;
+  }
+}
+
+.cart{
+  background-color: #fff;
+  padding: 4vh 5vh;
+  width: 400;
+  height: 400;
+  border-bottom-left-radius: 1rem;
+  border-top-left-radius: 1rem;
+}
+
+@media(max-width:767px){
+  .cardCart{
+    margin-bottom: 40px;
+  }
+  .cart{
+      padding: 4vh;
+      border-bottom-left-radius: unset;
+      border-top-right-radius: 1rem;
+  }
+}
+
+.summary1{
+  background-color:#009688;
+  padding: 4vh;
+  color: rgb(255, 255, 255);
+}
+
+.summary{
+  background-color: #fff;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  padding: 4vh;
+
+}
+
+@media(max-width:767px){
+  .summary{
+  border-top-right-radius: unset;
+  border-bottom-left-radius: 1rem;
+  }
+}
+
+.summary .col-2{
+  padding: 0;
+}
+
+.summary .col-10
+{
+  padding: 0;
+}.cont{
+  margin: 0;
+}
+
+
+.col-2, .col{
+  padding: 0 1vh;
+}
+
+mat-icon{
+  font-size: small;
+}
+
+
+.produit-name{
+  font-size: x-large;
+  font-family: 'Kaushan Script', cursive;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,84 @@
+<mat-toolbar color="primary" >
+  <mat-toolbar-row style="height: 40px;">
+    <h1 class="logo1 align-items-center" type="submit" routerLink="/">مقروض عقبة</h1>
+    <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+      <mat-icon matBadge="{{cartQuantity}}" matBadgeColor="warn" matBadgeSize="small" type="button"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">shopping_cart</mat-icon>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" >
+  <div class="offcanvas-header border-bottom" style="height: 8vh;">
+    <h1 class="offcanvas-title" id="offcanvasExampleLabel" style="padding-top: 15px;">PANIER</h1>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+
+
+    <div class="main" >
+
+      <div class="cartemty" style="padding: 60px" *ngIf="cart.items.length === 0">
+        <div class="row d-flex align-items-center" style="padding: 10px">
+          <h5 >Il n'y a plus d'articles dans votre panier</h5>
+        </div>
+        <div class="row d-flex align-items-center">
+          <button mat-raised-button color="primary" type="submit" style="margin-top: 10px;" routerLink="/" data-bs-dismiss="offcanvas" aria-label="Close">CONTINUER VOS ACHATS</button>
+        </div>
+      </div>
+
+      <div class="row  border-bottom" *ngFor="let cartItem of cart.items">
+        <div class="row  align-items-center" style="padding: 20px">
+
+            <div class="col-3"><img class="img-fluid imgCart border" [src]="cartItem.produit.produitImg" [alt]="cartItem.produit.produitName" style="padding: 5px;" width="80px"></div>
+            <div class="col-7">
+              <div class="row" style="margin-bottom: 7px;">
+                <div class="col">{{cartItem.produit.produitName}}</div>
+              </div>
+            <div class="row" style="margin-bottom: 7px;" >
+                <span class="qty-price">
+                  <span class="qty">
+                    <form action="#" name="qty-form" id="qty-form-1">
+                      <button class="minus-button" id="minus-button-1" type="button" (click)="changeQuantity(cartItem, -1)">-</button>
+                      <input type="text" id="qty" class="qty-input"  name="qty"  [value]="cartItem.quantity" (keyup)="changeQuantity1(cartItem, $event)"   >
+                      <button class="plus-button" id="plus-button-1" type="button" (click)="changeQuantity(cartItem, 1)">+</button>
+                    </form>
+                  </span>
+                </span>
+            </div>
+            <div class="row">
+              <div class="col d-flex align-items-left"><span class="text-muted">{{cartItem.quantity}} * </span><b style="color: #009688;">&nbsp;{{cartItem.produit.produitPrice}},0 TND</b></div>
+            </div>
+            </div>
+            <div class="col-1">
+
+            </div>
+            <div class="col-1">
+              <div class="col d-flex"><span class="close" type="button" (click)="removeFromCart(cartItem)">&#10005;</span></div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer border-top"  *ngIf="cart.items.length !== 0">
+      <div class="d-flex  justify-content-between align-items-center border-bottom" >
+        <h3 class="dress-name"><b>SOUS TOTAL :</b></h3>
+        <div class="d-flex flex-column mb-2">
+            <span class="new-price" style="color:#009688; font-size: x-large;"><b>{{cart.totalPrice}}.0 TND</b></span>
+        </div>
+      </div>
+      <div >
+        <div class="row d-flex align-items-center">
+          <button mat-raised-button color="primary" type="submit" style="margin-top: 10px;" routerLink="/cart" data-bs-dismiss="offcanvas" aria-label="Close"> VOIR LE PANIER</button>
+        </div>
+        <div class="row d-flex align-items-center">
+          <button mat-raised-button color="warn" type="submit" style="margin-top: 10px;" routerLink="/order" data-bs-dismiss="offcanvas" aria-label="Close"> COMMANDER</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

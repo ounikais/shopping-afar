@@ -1,0 +1,92 @@
+
+
+
+  <div class="content" fxLayoutAlign="center center" fxFlexFill>
+
+    <div class="row" style="padding: 20px;" >
+        <div class="d-flex merci justify-content-between align-items-center"  fxLayoutAlign="stretch" fxLayout="column">
+              <div class="row align-items-center" style="color: #009688;">Merci. Votre commande a été reçue.</div>
+        </div>
+        <div class="row" *ngIf="order">
+          <div class="col-sm-3 align-items-center justify-content-center" fxLayoutAlign="stretch" fxLayout="column">
+            <div class="row">
+              <h5 class="dress-name align-items-center justify-content-center">Numéro de commande :</h5>
+            </div>
+            <div class="row">
+              <h5 class="dress-name align-items-center justify-content-center"><b>{{order.orderRef}}</b></h5>
+            </div>
+          </div>
+          <div class="col-sm-3 align-items-center justify-content-center"  fxLayoutAlign="stretch" fxLayout="column">
+            <div class="row">
+              <h5 class="dress-name align-items-center justify-content-center">Date :</h5>
+            </div>
+            <div class="row">
+              <h5 class="dress-name align-items-center justify-content-center"><b>{{order.createdAt | date:'dd/MM/yyyy'}}</b></h5>
+            </div>
+          </div>
+          <div class="col-sm-3 align-items-center justify-content-center" fxLayoutAlign="stretch" fxLayout="column">
+            <div class="row">
+              <h5 class="dress-name align-items-center justify-content-center">Total :</h5>
+            </div>
+            <div class="row">
+              <h5 class="dress-name align-items-center justify-content-center"><b>{{order.totalAmount + 7}}</b></h5>
+            </div>
+          </div>
+          <div class="col-sm-3 align-items-center justify-content-center" fxLayoutAlign="stretch" fxLayout="column">
+            <div class="row">
+              <h5 class="dress-name align-items-center justify-content-center">Moyen de paiement :</h5>
+            </div>
+            <div class="row">
+              <h5 class="dress-name align-items-center justify-content-center"><b>Cash on delivery</b></h5>
+            </div>
+          </div>
+        </div>
+
+        <h3>DÉTAILS DE LA COMMANDE</h3>
+          <div class="d-flex justify-content-between align-items-center border-bottom" style="margin-bottom: 5px;">
+            <h5 class="dress-name"><b>PRODUIT</b></h5>
+            <div class="d-flex flex-column mb-2">
+                <span class="new-price"><b>SOUS TOTAL</b></span>
+            </div>
+          </div>
+          <div >
+            <div class="d-flex justify-content-between align-items-center border-bottom" style="margin-bottom: 5px;padding-bottom: 5px;" *ngFor="let ord of order.items" >
+              <img class="img-fluid imgCart border" [src]="ord.produit.produitImg" [alt]="ord.produit.produitName" style="padding: 5px;" width="60px">
+              <h5 class="dress-name">{{ord.produit.produitName}} * {{ord.quantity}}</h5>
+              <div class="d-flex flex-column mb-2">
+                  <span class="new-price">{{ord.price}},0 TND</span>
+              </div>
+            </div>
+          </div>
+
+        <div class="d-flex justify-content-between align-items-center border-bottom" style="margin-bottom: 5px; ">
+          <h5 class="dress-name">SOUS TOTAL</h5>
+          <div class="d-flex flex-column mb-2">
+              <span class="new-price" style="color:#009688;">{{order.totalAmount}}.0 TND</span>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between align-items-center border-bottom" style="margin-bottom: 5px;">
+          <h5 class="dress-name">Frais de livraison</h5>
+          <div class="d-flex flex-column mb-2">
+              <span class="new-price" style="color:#009688;"> 7,0 TND</span>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between align-items-center border-bottom" style="margin-bottom: 25px;">
+          <h5 class="dress-name"><b>TOTAL</b></h5>
+          <div class="d-flex flex-column mb-2">
+              <span class="new-price" style="color:#009688;"><b>{{order.totalAmount + 7}}.0 TND</b></span>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between align-items-center border-bottom">
+          <h5 class="dress-name"><b>Gouvernorat</b></h5>
+          <div class="d-flex flex-column mb-2">
+              <span class="new-price" style="color:#009688;">{{order.adress.gouvernorat  | titlecase}}</span>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+
+

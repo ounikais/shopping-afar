@@ -1,0 +1,131 @@
+
+// Mixin to generate hover & active states
+@mixin hover-active() {
+	&:active,
+	&:hover {
+		@content;
+	}
+}
+
+// Replace `$search` with `$replace` in `$string`
+@function str-replace($string, $search, $replace: "") {
+	$index: str-index($string, $search);
+
+	@if $index {
+		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+	}
+
+	@return $string;
+}
+
+
+
+
+
+.logo1{
+  font-family: 'Motairah' !important;
+  font-weight: bold;
+  font-size:medium;
+}
+
+
+
+
+mat-toolbar {
+  position: sticky;
+  position: -webkit-sticky; /* For macOS/iOS Safari */
+  top: 0; /* Sets the sticky toolbar to be on top */
+  z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+  min-height: 40px !important;
+  max-height: 40px !important;
+  height: 40px !important;
+}
+
+
+mat-icon{
+  margin-top: 15px;
+  font-size: medium;
+}
+
+.offcanvas-body{
+  padding: 0;
+  margin: 0;
+}
+
+.main{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  height: calc(100vh - 210px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: block;
+  position: relative;
+  z-index: 0;
+}
+
+.footer{
+  padding: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 160px;
+  background: white;
+  display: block;
+  white-space: nowrap;
+}
+
+
+
+button.minus-button,
+button.plus-button{
+                width: 24px;
+								height: 24px;
+                border: none;
+								text-align: center;
+								vertical-align: middle;
+
+                @include hover-active() {
+									color: white;
+									background: #009688;
+									border-color: #009688;
+									cursor: pointer;
+									outline: none;
+								}
+
+								&:focus {
+									outline: none;
+								}
+
+
+}
+
+input.qty-input {
+  width: 24px;
+  height: 24px;
+  border: none;
+  text-align: center;
+
+  &:focus {
+    outline: none;
+    border:none;
+  }
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    appearance: none;
+    margin: 0;
+  }
+
+}
+
+
+
+
+
+

@@ -1,0 +1,16 @@
+<div [id]="randomId" class="carousel carousel-dark slide" data-bs-ride="carousel">
+	<div class="carousel-indicators align-items-center">
+		<button *ngFor="let elem of slides; let i=index" type="button" [attr.data-bs-target]="'#' + randomId" [attr.data-bs-slide-to]="i" [ngClass]="i == 0 ? 'active' : ''" [attr.aria-current]="i == 0 ? 'true' : null" [attr.aria-label]="'Slide ' + i"></button>
+	</div>
+	<div class="carousel-inner align-items-center">
+		<div *ngFor="let elem of slides; let i=index" class="carousel-item align-items-center" [ngClass]="i == 0 ? 'active' : ''">
+			<img [src]="elem.imageURL" class="d-block w-100" [alt]="elem.title">
+			<div class="carousel-caption  d-none d-md-block">
+				<h5>{{ elem.title }}</h5>
+				<p>{{ elem.description }}</p>
+				<a *ngIf="elem.buttonText" class="btn btn-primary" [routerLink]="elem.forwardURL" role="button">{{elem.buttonText}}</a>
+			</div>
+		</div>
+	</div>
+</div>
+

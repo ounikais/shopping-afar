@@ -1,0 +1,43 @@
+
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+  <mat-card *ngIf="!isLoggedIn">
+    <mat-toolbar color="primary">
+      Connexion
+     </mat-toolbar>
+    <form fxLayoutAlign="stretch" fxLayout="column" class="login-form"  name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+        <mat-form-field>
+          <input matInput placeholder="E-mail" required type="email" [(ngModel)]="form.email" #email="ngModel" name="email"  />
+          <mat-icon matSuffix>email</mat-icon>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Mot de passe" required type="password" [(ngModel)]="form.password" #password="ngModel" minlength="6" name="password" />
+          <mat-icon matSuffix>lock</mat-icon>
+        </mat-form-field>
+        <div
+          style="margin-top: 10px;"
+          class="alert alert-danger"
+          role="alert"
+          *ngIf="password.errors && f.submitted"
+        >
+          <div *ngIf="password.errors['required']">Password is required</div>
+          <div *ngIf="password.errors['minlength']">
+            Password must be at least 6 characters
+          </div>
+        </div>
+        <button mat-raised-button color="primary" type="submit">Connexion</button>
+        <div class="form-group">
+          <div
+            style="margin-top: 20px;"
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="f.submitted && isLoginFailed"
+          >
+            Login failed: {{ errorMessage }}
+          </div>
+        </div>
+    </form>
+  </mat-card>
+  <div class="alert alert-success" *ngIf="isLoggedIn">
+    Connecté en tant que {{ role }}
+  </div>
+</div>

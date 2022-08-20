@@ -1,0 +1,31 @@
+<div fxLayoutAlign="center center" fxFlexFill >
+  <div class="card cardCart" *ngIf="produit">
+    <div class="row cont">
+        <div class="col-md-4 cart align-items-center justify-content-center">
+          <img [src]="produit.produitImg" class="img-fluid rounded thumbnail-image" width="450" height="400">
+        </div>
+        <div class="col-md-4 summary1">
+          <div class="row d-flex align-items-left">
+            <h5 class="produit-name">{{produit.produitName}}</h5>
+          </div>
+          <div class="row d-flex align-items-left">
+            <b><span class="produit-price" style="color: #db8b00;">{{produit.produitPrice}}.0   TND</span></b>
+          </div>
+          <div class="row d-flex align-items-left" style="margin-top: 20px; font-size: small;">
+            <span class="produit-price"><mat-icon>local_shipping</mat-icon> Livraison à domicile</span>
+            <span class="produit-price" style="color: #55aa33;"><mat-icon>credit_card</mat-icon> Paiement à la livraison</span>
+            <span class="produit-price"><mat-icon>thumb_up</mat-icon> Garantie 100% Satisfait ou remboursé</span>
+          </div>
+          <div class="row d-flex align-items-center">
+            <button mat-raised-button color="warn" type="submit" style="margin-top: 40px;" (click)="addToCart()"><mat-icon style="font-size:larger !important;">shopping_cart</mat-icon> Ajouter Au Panier</button>
+          </div>
+        </div>
+        <div class="col-md-4 summary">
+          <p>
+            Si vous êtes à la recherche d'un sac à dos élégant et fonctionnel pour votre ordinateur portable, ne cherchez pas plus loin que le sac à dos RIVACASE 7962 gris clair. Ce sac à dos est fabriqué en matériau polyester durable et présente un design résistant à l'eau. Il possède une poche pour une tablette jusqu'à 10,5 pouces, ainsi qu'un compartiment pour un ordinateur portable jusqu'à 15,6 pouces. En outre, il y a deux poches latérales pour les bouteilles d'eau, et la poignée de transport souple et les bretelles confortables le rendent facile à transporter. Enfin, ses dimensions extérieures sont de 310 x 150 x 460 mm et il ne pèse que 0,79 kg.
+          </p>
+        </div>
+    </div>
+  </div>
+</div>
+
